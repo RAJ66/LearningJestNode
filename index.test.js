@@ -45,3 +45,8 @@ test("adds Vitor + Barbosa to equal false", () => {
 test("adds 2 + Barbosa to equal false", () => {
   expect(index.sum(2, "Barbosa")).toBeFalsy();
 });
+
+test("test user exist in github", async () => {
+  const user = await index.getUser();
+  expect(user).toBe("RAJ66");
+});

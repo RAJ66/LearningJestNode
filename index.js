@@ -1,3 +1,4 @@
+const axios = require("axios");
 function helloUser(user) {
   if (user === "Vitor") {
     return `Hi`;
@@ -14,4 +15,13 @@ function sum(a, b) {
   }
 }
 
-module.exports = { helloUser, sum };
+async function getUser() {
+  const response = await axios.get("https://api.github.com/users/raj66");
+  if (response.data.login) {
+    return response.data.login;
+  } else {
+    return false;
+  }
+}
+
+module.exports = { helloUser, sum, getUser };
